@@ -20,6 +20,7 @@ public class Location {
     @OneToMany(mappedBy = "location")
     private List<Evento> eventi;
 
+
     public Location(String nome, String città, List<Evento> eventi) {
         this.nome = nome;
         this.città = città;

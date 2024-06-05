@@ -1,12 +1,10 @@
 package lorenzofoschetti.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,8 +21,12 @@ public class Persona {
     private String email;
 
     private LocalDate dataDiNascita;
-
+    @Column
+    @Enumerated(EnumType.STRING)
     private Sesso sesso;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Partecipazione> listaPartecipazioni;
 
     public String getNome() {
         return nome;

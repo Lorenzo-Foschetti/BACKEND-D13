@@ -3,6 +3,7 @@ package lorenzofoschetti.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -25,8 +26,11 @@ public class Evento {
     private int numeroMaxPartecipanti;
 
     @ManyToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "location_id", nullable = false)
     private Location location;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> listaPartecipazioni;
 
     public Evento() {
     }

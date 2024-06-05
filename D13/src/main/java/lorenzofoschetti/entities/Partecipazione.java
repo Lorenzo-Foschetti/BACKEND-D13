@@ -1,9 +1,6 @@
 package lorenzofoschetti.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -15,6 +12,10 @@ public class Partecipazione {
     private UUID id;
 
     private Stato stato;
+
+    @ManyToOne
+    @JoinColumn(name = "evento_id")
+    private Evento evento;
 
 
 }
